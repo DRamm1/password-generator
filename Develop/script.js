@@ -3,8 +3,9 @@ var confirmconfirmEnter,
   confirmSymbol,
   confirmNum,
   confirmLower,
-  confirmUpper,
-  options;
+  confirmUpper;
+
+var options;
 //Symbol inputs for password generation
 Symbol = [
   "^",
@@ -99,7 +100,7 @@ Upper = [
   "Z",
 ];
 
-//
+// Start Code
 var get = document.querySelector("#generate");
 
 //Used a password placeholder and utilized it near the bottom of my code
@@ -117,7 +118,7 @@ function generatePassword() {
     )
   );
 
-  //Took a bit but I found a way to utilize a while loop so the end user can re-imput charcters if they did not choose an appropriate length
+  //Took a bit but I found a way to utilize a while loop so the end user can re-imput charcters if they did not choose an appropriate length or criteria
   i = 0;
   while (i < 1) {
     if (confirmEnter <= 8 || confirmEnter >= 128) {
@@ -139,11 +140,11 @@ function generatePassword() {
   if (!confirmSymbol && !confirmNum && !confirmUpper && !confirmLower) {
     options = alert("Please choose a creitera for your password!");
   }
-  // Used if all but one options is selected
+  // Used if all opitons are selected
   else if (confirmSymbol && confirmNum && confirmUpper && confirmLower) {
     options = Symbol.concat(Num, Lower, Upper);
   }
-  // Used if all but 2 options are selected
+  // Used if all but one options is selected
   else if (confirmSymbol && confirmNum && confirmUpper) {
     options = Symbol.concat(Num, Upper);
   } else if (confirmSymbol && confirmNum && confirmLower) {
@@ -153,7 +154,7 @@ function generatePassword() {
   } else if (confirmNum && confirmLower && confirmUpper) {
     options = Num.concat(Lower, Upper);
   }
-  // Used if only 2 criteria are met
+  //Used if two options are selected 
   else if (confirmSymbol && confirmNum) {
     options = Symbol.concat(Num);
   } else if (confirmSymbol && confirmLower) {
@@ -169,25 +170,23 @@ function generatePassword() {
   }
    // Used if only one option is selected
   else if (confirmSymbol) {
-    options = character;
+    options = Symbol;
   } else if (confirmNum) {
     options = Num;
   } else if (confirmLower) {
     options = Lower;
+  } else if (confirmUpper) {
+    options = Upper;
   };
   // This is an array placeholder for the password length selected by the user.
   var password = [];
 
   // This proccess generates the random characters
   for (var i = 0; i < confirmEnter; i++) {
-    var pickoptions = options[Math.floor(Math.random() * options.length)];
-    password.push(pickoptions);
+    var pickOptions = options[Math.floor(Math.random() * options.length)];
+    password.push(pickOptions);
   }
   // Used to join the password array, converts it to a string, and trims any spaces that might appear.
   PW = password.join("").trim(" ");
   return PW;
-};
-// Decided to use the funtion provided in the initial code as a placeholder to pass the password into the secure password box.
-function Input(PW) {
-  document.getElementById("password").passwordText = PW;
 };
