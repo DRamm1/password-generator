@@ -1,36 +1,37 @@
+/* Univeral selectors for pseudo-elements before and after*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+};
 
 html,
 body,
-.wrapper {
+.wrapper { /* Style for the wrapper class within the body thats contained in html as a whole */
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body {
+body {/* Styles the body section of the html */
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
 
-.wrapper {
+.wrapper {/* specifically targets styling towards the wrapper class */
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-header {
+header {/* specifically targets styling for the header */
   text-align: center;
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
 
-.card {
+.card {/* specifically targets styling for the card class */
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
@@ -42,7 +43,7 @@ header {
   padding: 30px 40px;
 }
 
-.card-header::after {
+.card-header::after {/* Pseudo-element syling for card-header class */
   content: " ";
   display: block;
   width: 100%;
@@ -50,15 +51,15 @@ header {
   height: 2px;
 }
 
-.card-body {
+.card-body {/* card-body class styling */
   min-height: 100px;
 }
 
-.card-footer {
+.card-footer {/* card-body class styling */
   text-align: center;
 }
 
-.card-footer::before {
+.card-footer::before {/* card-footer class styling for the ::before pseudo-element */
   content: " ";
   display: block;
   width: 100%;
@@ -66,13 +67,13 @@ header {
   height: 2px;
 }
 
-.card-footer::after {
+.card-footer::after {/* card-footer class styling for the ::after pseudo-element */
   content: " ";
   display: block;
   clear: both;
 }
 
-.btn {
+.btn {/* btn class or more generally the styles for the button */
   border: none;
   background-color: green;
   border-radius: 25px;
@@ -88,16 +89,16 @@ header {
   cursor: pointer;
 }
 
-button[disabled] {
+button[disabled] {/* Style of button if diabled */
   cursor: default;
   background: #c0c7cf;
 }
 
-.float-right {
+.float-right {/* float-right styling */
   float: right;
 }
 
-#password {
+#password {/* Styling for password Id */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -118,7 +119,7 @@ button[disabled] {
   overflow: hidden;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 690px) {/* Specifications for different screen size of max width of 690px */
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
@@ -130,7 +131,7 @@ button[disabled] {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px) {/* Specifications for different screen size of max width of 500px */
   .btn {
     font-size: 0.8rem;
   }
